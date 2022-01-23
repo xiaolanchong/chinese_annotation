@@ -8,8 +8,8 @@ body {
   color: #eee;
 }
 
-pre {
-  white-space: pre-wrap;
+.hilite {
+  background-color: #951;
 }
 
 .sl {
@@ -207,4 +207,8 @@ font {
 
 .nw {
   white-space: nowrap;
+}
+
+.nw_num {
+  font-size: small;
 }

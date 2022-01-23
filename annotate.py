@@ -6,7 +6,7 @@ import urllib.request
 import urllib.parse
 from multipart_sender import MultiPartForm
 
-env = jinja2.Environment(loader=jinja2.PackageLoader('mandarinspot', '.'))
+env = jinja2.Environment(loader=jinja2.PackageLoader('annotate', '.'))
 template = env.get_template('output_file.template.htm')
 
 
@@ -19,9 +19,10 @@ def replace_html_content(title: str, content: str):
     annotate_spans = m.group(1)
     annotate_spans = annotate_spans.replace('"onmouseover', '" onmouseover')
     input_params = {
+        'simplified_hanzi': True,
         'title': title,
         'vocabulary': vocab_json_str,
-        'annotation': annotate_spans
+        'annotation': annotate_spans,
     }
     return template.render(**input_params, sort_keys=True, indent=2)
 
@@ -56,7 +57,7 @@ def process_text_file(filename, params):
 
 def main():
     if len(sys.argv) != 2:
-        print('mandarinsport.py <input file>')
+        print('mandarinsport.py <input utf-8 text file>')
         exit(-1)
 
     file_name = sys.argv[1]
@@ -67,7 +68,6 @@ def main():
         'vocab': 5,
         'sort': 'ord'
     }
-    file_name = r'c:\Users\eugeneg\Downloads\Nahan\01 自序.txt'
     process_text_file(file_name, values)
 
 
