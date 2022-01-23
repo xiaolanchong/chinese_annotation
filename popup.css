@@ -1,0 +1,210 @@
+body {
+  font-family: sans-serif, Verdana;
+  margin-top: 3ex;
+  margin-left: 0;
+  text-align: center;
+  margin-right: 0;
+  background-color: #000;
+  color: #eee;
+}
+
+pre {
+  white-space: pre-wrap;
+}
+
+.sl {
+  margin-left: 10ex;
+  margin-bottom: 2ex;
+  text-align: left;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 90%;
+  white-space: nowrap;
+}
+
+.mid {
+  margin: 0 auto;
+  max-width: 980px;
+  text-align: left;
+}
+
+.content {
+  min-height: 25em;
+  margin-bottom: 0.5em;
+}
+
+.tab {
+  padding: 0 1ex;
+  float: left;
+  position: relative;
+  top: 1px;
+  margin: 0;
+  margin-left: 3px;
+  display: block;
+}
+
+.atab {
+  border: 1px solid #b80;
+  border-bottom: 1px solid #fff;
+  background-color: #fff;
+}
+
+.ntab {
+  border: 1px solid #b80;
+  background-color: #eec;
+}
+
+.ntab:hover {
+  background-color: #fff;
+}
+
+.subtab {
+  background-color: #eec;
+  padding: 0 3px;
+}
+
+.subtab:hover {
+  background-color: #fff;
+}
+
+.tab a,
+.atab a,
+.tab a:hover,
+.atab a:hover {
+  text-decoration: none;
+  color: #000;
+}
+
+.tabs {
+  width: 100%;
+  border-bottom: 1px solid #b80;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  white-space: nowrap;
+  min-width: 40ex;
+}
+
+.tabs ul {
+  list-style-type: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #970;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #c00;
+}
+
+.warning {
+  margin-top: 4ex;
+  border: 1px solid #b80;
+  background-color: #ff9;
+  padding: 1ex;
+}
+
+.adt {
+  text-decoration: none
+}
+
+body {
+  position: relative;
+}
+
+#tip {
+  border: 1px solid #333;
+  background-color: #111;
+  padding: 5px;
+  font: normal 1em sans-serif, arial;
+  z-index: 10001;
+  visibility: hidden;
+  position: absolute;
+  _width: 15ex;
+}
+
+font {
+  z-index: 10000;
+}
+
+.ann {
+  cursor: default;
+  z-index: 99;
+}
+
+.iann {
+  text-align: center;
+  white-space: nowrap;
+  display: -moz-inline-box;
+  display: inline-table;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.sann {
+  margin: 0 0.3ex;
+}
+
+.nann {
+  vertical-align: bottom;
+}
+
+#url {
+  width: 99%;
+}
+
+#annotated {
+  padding: 2ex;
+  margin: 0;
+}
+
+#translated {
+  border: 1px solid #b80;
+  padding: 2ex;
+  padding-bottom: 1ex;
+  margin-top: 2ex;
+}
+
+#intro {
+  margin-top: 1ex;
+}
+
+.py {
+  font-size: 80%;
+  color: #c00;
+  display: table-row;
+}
+
+.zy {
+  font-size: 60%;
+  color: #c00;
+  display: table-row;
+}
+
+.zh {
+  display: table-row;
+}
+
+#show_vocab {
+  margin-top: 1em;
+}
+
+#vocab_table {
+  border: 0px;
+  margin: 5px 5px;
+  padding-left: 5px;
+  text-align: left;
+}
+
+#vocab>tr:nth-child(even) {
+  background-color: #111;
+}
+
+.nw {
+  white-space: nowrap;
+}

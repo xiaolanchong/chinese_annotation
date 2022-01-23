@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }}</title>
+  <style type="text/css">
+  {% include 'popup.css' %}
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script type="text/javascript">
+  text_vocabulary = {{ vocabulary | safe }} ;
+  {% include 'popup.js' %}
+  {% include 'show_words.js' %}
+  </script>
+</head>
+<body>
+  <div id="content" class="content mid">
+    <div id="tip" style="text-align: center"></div>
+    <div id="annotated">
+       {{ annotation | safe }}
+    </div>
+    <div id="show_vocab">
+      <div id="vocab_rg">
+       <label for="vocab">
+          Add vocabulary for 
+          <select name="vocab" id="vocab_ls" style="margin-top:.7ex">
+             <option value="1">all words</option>
+             <option value="2">HSK 2 and up</option>
+             <option value="3" selected="selected">HSK 3 and up</option>
+             <option value="4">HSK 4 and up</option>
+             <option value="5">not in HSK</option>
+             <option value="6">none at all</option>
+          </select>
+       </label>
+       <label for="sort">
+          Sort by 
+          <select name="sort" id="sort_ls" style="margin-top:.7ex">
+             <option value="ord" selected="selected">первому появлению</option>
+             <option value="py">произношению</option>
+             <option value="rad">ключу иероглифа</option>
+             <option value="freq">частоте</option>
+          </select>
+       </label>
+      </div>
+      <button type="button" onclick="show_words()">Показать слова</button>
+    </div>
+  </div>
+    <table id="vocab_table" style="border:0">
+      <tbody id="vocab"> </tbody>
+    </table>
+</body>
+</html>
