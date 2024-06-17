@@ -1,4 +1,5 @@
 import sys
+import argparse
 from pathlib import Path
 import re
 import jinja2
@@ -45,22 +46,28 @@ def download_annotated_text(content, values):
     return fp.read().decode('utf-8')
 
 
-def process_text_file(filename, params):
-    name_no_ext = Path(filename).stem
-    with open(filename, encoding='utf8') as f:
+def process_text_file(infilename, outfilename, params):
+    name_no_ext = Path(infilename).stem
+    with open(infilename, encoding='utf8') as f:
         content = f.read()
     processed_text = download_annotated_text(content, params)
     processed_text = replace_html_content(name_no_ext, processed_text)
-    with open(f'{name_no_ext}-out.htm', mode='w', encoding='utf8') as f:
+    with open(outfilename, mode='w', encoding='utf8') as f:
         f.write(processed_text)
 
 
 def main():
-    if len(sys.argv) != 2:
-        print('mandarinsport.py <input utf-8 text file>')
-        exit(-1)
+    parser = argparse.ArgumentParser(description='App to annotate Chinese texts with popup English translation.')
+    parser.add_argument('infile', help='input utf-8 text file name')
+    parser.add_argument('outfile', help='output html file name, <infile>.htm if missing', nargs='?')
+    namespace = parser.parse_args()
+    in_file_name = namespace.infile
+    out_file_name = namespace.outfile
+    if not out_file_name:
+        in_file_name = sys.argv[1]
+        name_no_ext = Path(in_file_name).stem
+        out_file_name = f'{name_no_ext}.htm'
 
-    file_name = sys.argv[1]
     values = {
         'e': 'utf-8',
         'phs': 'pinyin',
@@ -68,7 +75,7 @@ def main():
         'vocab': 5,
         'sort': 'ord'
     }
-    process_text_file(file_name, values)
+    process_text_file(in_file_name, out_file_name, values)
 
 
 if __name__ == "__main__":
