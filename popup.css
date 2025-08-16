@@ -4,8 +4,9 @@ body {
   margin-left: 0;
   text-align: center;
   margin-right: 0;
-  background-color: #000;
-  color: #eee;
+  /* bootstrap dark theme */
+  background-color: #212529;
+  color: #dee2e6;
 }
 
 .hilite {
